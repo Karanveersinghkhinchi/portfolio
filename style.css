@@ -1,0 +1,698 @@
+        /* General Styles */
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+            font-family: 'Poppins', sans-serif;
+            scroll-behavior: smooth;
+        }
+
+        body {
+            background: #0d0d0d;
+            color: #fff;
+            line-height: 1.6;
+            overflow-x: hidden;
+        }
+
+        /* Animated Background */
+        @keyframes gradientBG {
+            0% { background-position: 0% 50%; }
+            50% { background-position: 100% 50%; }
+            100% { background-position: 0% 50%; }
+        }
+
+        /* Navbar */
+        .navbar {
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+            padding: 20px 40px;
+            background: linear-gradient(90deg, rgba(0, 0, 0, 0.9), rgba(20, 20, 20, 0.7));
+            position: fixed;
+            width: 100%;
+            top: 0;
+            z-index: 1000;
+            box-shadow: 0 4px 20px rgba(0, 0, 0, 0.6);
+            transition: background 0.3s ease;
+        }
+
+        .navbar.scrolled {
+            background: rgba(0, 0, 0, 0.95);
+        }
+
+        .logo {
+            font-size: 30px;
+            font-weight: 800;
+            color: #ffcc00;
+            text-transform: uppercase;
+            letter-spacing: 3px;
+            text-shadow: 0 0 10px rgba(255, 204, 0, 0.5);
+        }
+
+        .nav-links {
+            list-style: none;
+            display: flex;
+            gap: 35px;
+        }
+
+        .nav-links li a {
+            text-decoration: none;
+            color: #fff;
+            font-size: 16px;
+            font-weight: 600;
+            position: relative;
+            transition: color 0.3s ease;
+        }
+
+        .nav-links li a::after {
+            content: '';
+            position: absolute;
+            width: 0;
+            height: 2px;
+            background: #ffcc00;
+            left: 0;
+            bottom: -5px;
+            transition: width 0.3s ease;
+        }
+
+        .nav-links li a:hover::after {
+            width: 100%;
+        }
+
+        .nav-links li a:hover {
+            color: #ffcc00;
+        }
+
+        .hamburger {
+            display: none;
+            font-size: 28px;
+            color: #ffcc00;
+            background: none;
+            border: none;
+            cursor: pointer;
+        }
+
+        /* Hero Section */
+        .video-background {
+            position: relative;
+            height: 100vh;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            text-align: center;
+            overflow: hidden;
+            background: linear-gradient(45deg, #0d0d0d, #1a1a1a);
+            background-size: 200% 200%;
+            animation: gradientBG 15s ease infinite;
+        }
+
+        #bgVideo {
+            position: absolute;
+            top: 0;
+            left: 0;
+            width: 100%;
+            height: 100%;
+            object-fit: cover;
+            z-index: -1;
+            filter: brightness(0.6) contrast(1.1);
+        }
+
+        .overlay {
+            position: absolute;
+            top: 0;
+            left: 0;
+            width: 100%;
+            height: 100%;
+            background: linear-gradient(to bottom, rgba(0, 0, 0, 0.5), rgba(0, 0, 0, 0.8));
+            z-index: 0;
+        }
+
+        .home-content {
+            z-index: 1;
+        }
+
+        .home-content h1 {
+            font-size: 5rem;
+            font-weight: 800;
+            text-transform: uppercase;
+            letter-spacing: 4px;
+            background: -webkit-linear-gradient(45deg, #ffcc00, #ff6f61);
+            -webkit-background-clip: text;
+            -webkit-text-fill-color: transparent;
+            margin-bottom: 20px;
+            animation: fadeInUp 1s ease;
+        }
+
+        .home-content p {
+            font-size: 2rem;
+            font-weight: 600;
+            color: #fff;
+            margin-bottom: 40px;
+            text-shadow: 0 0 15px rgba(255, 204, 0, 0.7);
+            animation: fadeInUp 1.2s ease;
+        }
+
+        .btn {
+            padding: 18px 40px;
+            background: #ffcc00;
+            color: #000;
+            text-decoration: none;
+            font-weight: 600;
+            border-radius: 50px;
+            transition: all 0.4s ease;
+            box-shadow: 0 5px 20px rgba(255, 204, 0, 0.6);
+            animation: fadeInUp 1.4s ease;
+        }
+
+        .btn:hover {
+            background: #ff6f61;
+            color: #fff;
+            transform: scale(1.05) translateY(-5px);
+            box-shadow: 0 10px 25px rgba(255, 111, 97, 0.6);
+        }
+
+        /* About Me Section */
+        #about {
+            padding: 100px 20px;
+            background: #0d0d0d;
+            text-align: center;
+        }
+
+        #about h2 {
+            font-size: 4rem;
+            color: #ffcc00;
+            text-transform: uppercase;
+            text-shadow: 0 0 15px rgba(255, 204, 0, 0.5);
+            margin-bottom: 40px;
+        }
+
+        #about p {
+            font-size: 1.5rem;
+            font-weight: 600;
+            color: #fff;
+            max-width: 800px;
+            margin: 0 auto 20px;
+            line-height: 1.8;
+            text-shadow: 0 0 5px rgba(255, 255, 255, 0.3);
+        }
+
+        .about-photos {
+            display: flex;
+            justify-content: center;
+            gap: 40px;
+            margin-top: 40px;
+        }
+
+        .about-photos img {
+            width: 250px;
+            height: 250px;
+            border-radius: 50%;
+            border: 4px solid #ffcc00;
+            box-shadow: 0 8px 25px rgba(255, 204, 0, 0.5);
+            transition: transform 0.3s ease, box-shadow 0.3s ease;
+            object-fit: cover;
+        }
+
+        .about-photos img:hover {
+            transform: scale(1.1);
+            box-shadow: 0 12px 35px rgba(255, 204, 0, 0.7);
+        }
+
+        /* Photography Section */
+        #photography {
+            padding: 100px 20px;
+            background: #1a1a1a;
+            text-align: center;
+        }
+
+        #photography h2 {
+            font-size: 4rem;
+            color: #ffcc00;
+            text-transform: uppercase;
+            text-shadow: 0 0 15px rgba(255, 204, 0, 0.5);
+            margin-bottom: 40px;
+        }
+
+        .photo-gallery {
+            display: flex;
+            flex-wrap: wrap;
+            justify-content: center;
+            gap: 30px;
+        }
+
+        .photo-card {
+            width: 350px;
+            border-radius: 20px;
+            overflow: hidden;
+            box-shadow: 0 8px 25px rgba(0, 0, 0, 0.6);
+            transition: transform 0.4s ease, box-shadow 0.4s ease;
+        }
+
+        .photo-card img {
+            width: 100%;
+            height: 300px;
+            object-fit: cover;
+            transition: transform 0.4s ease;
+        }
+
+        .photo-card:hover {
+            transform: scale(1.05);
+            box-shadow: 0 12px 35px rgba(255, 204, 0, 0.5);
+        }
+
+        .photo-card:hover img {
+            transform: scale(1.1);
+        }
+
+        /* Skills Section */
+        #skills {
+            padding: 100px 20px;
+            background: #1a1a1a;
+            position: relative;
+        }
+
+        #skills h2 {
+            font-size: 4rem;
+            text-align: center;
+            margin-bottom: 60px;
+            color: #ffcc00;
+            text-transform: uppercase;
+            text-shadow: 0 0 15px rgba(255, 204, 0, 0.5);
+            animation: fadeIn 1s ease;
+        }
+
+        .skills-container {
+            display: flex;
+            justify-content: center;
+            gap: 50px;
+            flex-wrap: wrap;
+        }
+
+        .skill-card {
+            background: #252525;
+            padding: 40px;
+            width: 450px;
+            text-align: center;
+            border-radius: 20px;
+            transition: all 0.4s ease;
+            border: 2px solid #ffcc00;
+            box-shadow: 0 10px 25px rgba(0, 0, 0, 0.6);
+        }
+
+        .skill-card:hover {
+            transform: translateY(-15px);
+            box-shadow: 0 20px 40px rgba(255, 204, 0, 0.5);
+        }
+
+        .skill-card h3 {
+            font-size: 2.5rem;
+            font-weight: 800;
+            margin-bottom: 25px;
+            color: #ffcc00;
+            text-transform: uppercase;
+            text-shadow: 0 0 10px rgba(255, 204, 0, 0.5);
+        }
+
+        .skill-card p {
+            font-size: 1.3rem;
+            font-weight: 600;
+            color: #fff;
+            line-height: 1.9;
+        }
+
+        .skill-card p span {
+            color: #ff6f61;
+            font-weight: 800;
+            text-shadow: 0 0 5px rgba(255, 111, 97, 0.5);
+        }
+
+        /* Meme Box Section */
+        #meme-box {
+            padding: 100px 20px;
+            background: #0d0d0d;
+            text-align: center;
+            position: relative;
+        }
+
+        #meme-box h2 {
+            font-size: 3rem;
+            color: #ffcc00;
+            text-transform: uppercase;
+            text-shadow: 0 0 15px rgba(255, 204, 0, 0.5);
+            margin-bottom: 40px;
+        }
+
+        .meme-video {
+            max-width: 600px;
+            margin: 0 auto;
+            border-radius: 20px;
+            overflow: hidden;
+            box-shadow: 0 8px 25px rgba(0, 0, 0, 0.6);
+            position: relative;
+        }
+
+        .meme-video video {
+            width: 100%;
+            border-radius: 20px;
+        }
+
+        .replay-btn {
+            position: absolute;
+            bottom: 20px;
+            left: 50%;
+            transform: translateX(-50%);
+            padding: 10px 20px;
+            background: #ffcc00;
+            color: #000;
+            border: none;
+            border-radius: 25px;
+            font-weight: 600;
+            cursor: pointer;
+            display: none;
+            transition: all 0.3s ease;
+        }
+
+        .replay-btn:hover {
+            background: #ff6f61;
+            color: #fff;
+            transform: translateX(-50%) scale(1.1);
+        }
+
+        /* Instagram Feed Section */
+        #instagram {
+            padding: 100px 20px;
+            background: #0d0d0d;
+            text-align: center;
+        }
+
+        #instagram h2 {
+            font-size: 4rem;
+            color: #ffcc00;
+            text-transform: uppercase;
+            text-shadow: 0 0 15px rgba(255, 204, 0, 0.5);
+            margin-bottom: 40px;
+        }
+
+        .instagram-feed {
+            display: flex;
+            flex-wrap: wrap;
+            justify-content: center;
+            gap: 30px;
+        }
+
+        .instagram-feed .instagram-media {
+            background: #252525 !important;
+            border: 2px solid #ffcc00 !important;
+            border-radius: 15px !important;
+            box-shadow: 0 5px 15px rgba(0, 0, 0, 0.5) !important;
+            max-width: 540px;
+            min-width: 326px;
+            width: 100%;
+            margin: 0 auto;
+        }
+
+        /* Work Section */
+        .gallery-section {
+            padding: 100px 20px;
+            background: #0d0d0d;
+        }
+
+        .gallery-title {
+            font-size: 4rem;
+            text-align: center;
+            margin-bottom: 60px;
+            color: #ffcc00;
+            text-transform: uppercase;
+            text-shadow: 0 0 15px rgba(255, 204, 0, 0.5);
+        }
+
+        .gallery {
+            display: flex;
+            flex-wrap: wrap;
+            justify-content: center;
+            gap: 40px;
+        }
+
+        .media-card {
+            position: relative;
+            width: 400px;
+            overflow: hidden;
+            border-radius: 20px;
+            transition: transform 0.4s ease, box-shadow 0.4s ease;
+            box-shadow: 0 8px 25px rgba(0, 0, 0, 0.6);
+        }
+
+        .media-card:hover {
+            transform: scale(1.08);
+            box-shadow: 0 12px 35px rgba(255, 204, 0, 0.5);
+        }
+
+        .media-card video {
+            width: 100%;
+            height: 300px;
+            object-fit: cover;
+            border-radius: 20px;
+            transition: transform 0.4s ease;
+        }
+
+        .media-card:hover video {
+            transform: scale(1.1);
+        }
+
+        /* Contact Section */
+        #contact {
+            padding: 100px 20px;
+            background: #1a1a1a;
+        }
+
+        #contact h2 {
+            font-size: 4rem;
+            text-align: center;
+            margin-bottom: 60px;
+            color: #ffcc00;
+            text-transform: uppercase;
+            text-shadow: 0 0 15px rgba(255, 204, 0, 0.5);
+        }
+
+        #contact form {
+            max-width: 700px;
+            margin: 0 auto;
+            display: flex;
+            flex-direction: column;
+            gap: 20px;
+        }
+
+        #contact input, #contact textarea {
+            padding: 18px;
+            border: none;
+            border-radius: 12px;
+            background: #333;
+            color: #fff;
+            font-size: 1.1rem;
+            transition: all 0.3s ease;
+        }
+
+        #contact input:focus, #contact textarea:focus {
+            outline: none;
+            box-shadow: 0 0 15px rgba(255, 204, 0, 0.6);
+            background: #3a3a3a;
+        }
+
+        #contact button {
+            padding: 18px;
+            background: #ffcc00;
+            color: #000;
+            border: none;
+            border-radius: 50px;
+            cursor: pointer;
+            font-weight: 600;
+            font-size: 1.2rem;
+            transition: all 0.4s ease;
+        }
+
+        #contact button:hover {
+            background: #ff6f61;
+            color: #fff;
+            transform: scale(1.05) translateY(-5px);
+            box-shadow: 0 10px 25px rgba(255, 111, 97, 0.6);
+        }
+
+        /* Footer */
+        footer {
+            text-align: center;
+            padding: 40px;
+            background: #0d0d0d;
+            font-size: 1.2rem;
+            color: #bbb;
+            border-top: 1px solid #ffcc00;
+        }
+
+        footer p {
+            margin-bottom: 15px;
+        }
+
+        /* Keyframe Animations */
+        @keyframes fadeInUp {
+            from { opacity: 0; transform: translateY(20px); }
+            to { opacity: 1; transform: translateY(0); }
+        }
+
+        @keyframes fadeIn {
+            from { opacity: 0; }
+            to { opacity: 1; }
+        }
+
+        /* Media Queries for Responsiveness */
+        @media (max-width: 1024px) {
+            .home-content h1 {
+                font-size: 4rem;
+            }
+
+            .home-content p {
+                font-size: 1.6rem;
+            }
+
+            .skill-card, .media-card, .meme-video, .photo-card {
+                width: 350px;
+            }
+
+            #about p, #photography p {
+                font-size: 1.3rem;
+            }
+
+            .about-photos img {
+                width: 200px;
+                height: 200px;
+            }
+        }
+
+        @media (max-width: 768px) {
+            .nav-links {
+                display: none;
+                flex-direction: column;
+                position: absolute;
+                top: 70px;
+                left: 0;
+                background: rgba(0, 0, 0, 0.95);
+                width: 100%;
+                padding: 20px 0;
+                text-align: center;
+            }
+
+            .nav-links.active {
+                display: flex;
+            }
+
+            .hamburger {
+                display: block;
+            }
+
+            .home-content h1 {
+                font-size: 3rem;
+            }
+
+            .home-content p {
+                font-size: 1.4rem;
+            }
+
+            .skill-card, .media-card, .meme-video, .photo-card {
+                width: 100%;
+                max-width: 400px;
+            }
+
+            #skills h2, .gallery-title, #contact h2, #about h2, #instagram h2, #meme-box h2, #photography h2 {
+                font-size: 3rem;
+            }
+
+            #about p, #photography p {
+                font-size: 1.2rem;
+            }
+
+            .about-photos {
+                flex-direction: column;
+                gap: 20px;
+            }
+
+            .about-photos img {
+                width: 180px;
+                height: 180px;
+            }
+
+            .photo-card {
+                width: 300px;
+            }
+
+            .photo-card img, .media-card video {
+                height: 250px;
+            }
+
+            .instagram-feed .instagram-media {
+                max-width: 400px;
+                min-width: 300px;
+            }
+        }
+
+        @media (max-width: 480px) {
+            .navbar {
+                padding: 15px 20px;
+            }
+
+            .logo {
+                font-size: 24px;
+            }
+
+            .home-content h1 {
+                font-size: 2.2rem;
+            }
+
+            .home-content p {
+                font-size: 1.1rem;
+            }
+
+            .btn {
+                padding: 12px 30px;
+                font-size: 1rem;
+            }
+
+            .skill-card {
+                padding: 25px;
+            }
+
+            .skill-card h3 {
+                font-size: 2rem;
+            }
+
+            .skill-card p {
+                font-size: 1.1rem;
+            }
+
+            #skills h2, .gallery-title, #contact h2, #about h2, #instagram h2, #meme-box h2, #photography h2 {
+                font-size: 2.2rem;
+            }
+
+            #about p, #photography p {
+                font-size: 1rem;
+            }
+
+            .about-photos img {
+                width: 150px;
+                height: 150px;
+            }
+
+            .media-card, .meme-video, .photo-card {
+                max-width: 100%;
+            }
+
+            .photo-card img, .media-card video {
+                height: 200px;
+            }
+
+            #contact form {
+                max-width: 100%;
+            }
+
+            .instagram-feed .instagram-media {
+                max-width: 100%;
+                min-width: 280px;
+            }
+        }
